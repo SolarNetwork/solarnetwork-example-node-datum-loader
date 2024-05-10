@@ -1,0 +1,24 @@
+{
+	"name": "solarnetwork-example-node-datum-loader",
+	"version": "1.0.0",
+	"description": "SolarNetwork Example: Node CLI Datum Loader",
+	"main": "node-datum-loader.js",
+	"private": true,
+	"keywords": [
+		"solarnetwork"
+	],
+	"license": "Apache-2.0",
+	"author": {
+		"name": "Matt Magoffin",
+		"email": "matt@solarnetwork.net"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"type": "module",
+	"dependencies": {
+		"node-getopt": "^0.3.x",
+		"solarnetwork-api-core": "^2.1.0",
+		"solarnetwork-datum-loader": "^2.0.1"
+	}
+}
