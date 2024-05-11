@@ -58,12 +58,14 @@ async function query(options) {
 			const rows = [];
 			const colOrder = new Map([
 				["created", 0],
-				["nodeId", 1],
-				["sourceId", 2],
+				["sourceId", 1],
 			]);
 			for (const datum of data) {
 				const row = [];
 				for (const key of Object.keys(datum)) {
+					if (key === "nodeId") {
+						continue;
+					}
 					if (!colOrder.has(key)) {
 						colOrder.set(key, colOrder.size);
 					}
