@@ -50,10 +50,22 @@ Execute a SolarQuery datum query and show the results.
   -s, --source=ARG+    source ID
   -b, --begin-date=ARG local begin date, in YYYY-MM-DD HH:mm or YYYY-MM-DD format
   -e, --end-date=ARG   local end date, exclusive
-  -a, --aggregate=ARG  aggregate, e.g. None, Hour, Day, Month (defaults to Day)
-  -t, --token=ARG      a SolarNet token to use
-  -S, --secret=ARG     the SolarNet token secret to use
+  -a, --aggregate=ARG  aggregate, e.g. Hour, Day, Month
+  -t, --token=ARG      a SolarNet token to use; SN_TOKEN environment variable also supported
+  -S, --secret=ARG     the SolarNet token secret to use; SN_SECRET environment variable also supported
   -h, --help           show this help
 ```
 
 The `-s/--source` argument may be specified any number of times to load multiple source IDs.
+
+# Authentication
+
+You can use the `-t/--token` and `-S/--secret` arguments to provide SolarNetwork token credentials.
+Alternatively you can define `SN_TOKEN` and `SN_SECRET` environment variables. For example:
+
+```sh
+export SN_TOKEN=mytoken
+export SN_SECRET=mytoken-secret
+
+node ./node-datum-loader.js ...
+```

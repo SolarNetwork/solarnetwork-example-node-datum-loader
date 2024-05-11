@@ -44,10 +44,13 @@ async function query(options) {
 	filter.localStartDate = parseDate(options["begin-date"]);
 	filter.localEndDate = parseDate(options["end-date"]);
 
+	const token = options.token || process.env.SN_TOKEN;
+	const secret = options.secret || process.env.SN_SECRET;
+
 	let auth = undefined;
-	if (options.token && options.secret) {
-		auth = new AuthorizationV2Builder(options.token, snEnv);
-		auth.saveSigningKey(options.secret);
+	if (token && secret) {
+		auth = new AuthorizationV2Builder(token, snEnv);
+		auth.saveSigningKey(secret);
 	}
 
 	try {
@@ -96,8 +99,12 @@ var getopt = new Getopt([
 	["b", "begin-date=ARG", "local begin date, in YYYY-MM-DD HH:mm or YYYY-MM-DD format"],
 	["e", "end-date=ARG", "local end date, exclusive"],
 	["a", "aggregate=ARG", "aggregate, e.g. Hour, Day, Month"],
-	["t", "token=ARG", "a SolarNet token to use"],
-	["S", "secret=ARG", "the SolarNet token secret to use"],
+	["t", "token=ARG", "a SolarNet token to use; SN_TOKEN environment variable also supported"],
+	[
+		"S",
+		"secret=ARG",
+		"the SolarNet token secret to use; SN_SECRET environment variable also supported",
+	],
 	["h", "help", "show this help"],
 ]).bindHelp(
 	"Usage: node node-datum-loader.js [OPTIONS]\n" +
