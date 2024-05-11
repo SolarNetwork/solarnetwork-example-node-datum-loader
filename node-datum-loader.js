@@ -98,7 +98,7 @@ var getopt = new Getopt([
 	["s", "source=ARG+", "source ID"],
 	["b", "begin-date=ARG", "local begin date, in YYYY-MM-DD HH:mm or YYYY-MM-DD format"],
 	["e", "end-date=ARG", "local end date, exclusive"],
-	["a", "aggregate=ARG", "aggregate, e.g. Hour, Day, Month"],
+	["a", "aggregate=ARG", "aggregate, e.g. None, Hour, Day, Month"],
 	["t", "token=ARG", "a SolarNet token to use; SN_TOKEN environment variable also supported"],
 	[
 		"S",
