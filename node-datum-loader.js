@@ -1,11 +1,12 @@
-import { Aggregation, Aggregations, DatumFilter } from "solarnetwork-api-core/lib/domain";
-import { AuthorizationV2Builder, Environment, SolarQueryApi } from "solarnetwork-api-core/lib/net";
+import { Domain, Net } from "solarnetwork-api-core";
+//import { Aggregation, Aggregations, DatumFilter } from "solarnetwork-api-core/lib/domain";
+//import { AuthorizationV2Builder, Environment, SolarQueryApi } from "solarnetwork-api-core/lib/net";
 import { DatumLoader } from "solarnetwork-datum-loader";
 import { AsciiTable3 } from "ascii-table3";
 import Getopt from "node-getopt";
 
-const snEnv = new Environment();
-const snApi = new SolarQueryApi(snEnv);
+const snEnv = new Net.Environment();
+const snApi = new Net.SolarQueryApi(snEnv);
 
 /**
  * Parse a date string in YYY-MM-DD HH:MM form (time optional).
@@ -29,13 +30,13 @@ function parseDate(str) {
 }
 
 async function query(options) {
-	const filter = new DatumFilter();
+	const filter = new Domain.DatumFilter();
 	filter.nodeId = +options.node;
 	filter.sourceIds = options.source;
 	if (options.aggregate) {
-		filter.aggregation = Aggregation.valueOf(options.aggregate);
+		filter.aggregation = Domain.Aggregation.valueOf(options.aggregate);
 	} else {
-		filter.aggregation = Aggregations.Day;
+		filter.aggregation = Domain.Aggregations.Day;
 	}
 	filter.localStartDate = parseDate(options["begin-date"]);
 	filter.localEndDate = parseDate(options["end-date"]);
@@ -45,7 +46,7 @@ async function query(options) {
 
 	let auth = undefined;
 	if (token && secret) {
-		auth = new AuthorizationV2Builder(token, snEnv);
+		auth = new Net.AuthorizationV2Builder(token, snEnv);
 		auth.saveSigningKey(secret);
 	}
 
