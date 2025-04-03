@@ -1,9 +1,5 @@
-import { Aggregation, Aggregations, DatumFilter } from "solarnetwork-api-core/lib/domain/index.js";
-import {
-	AuthorizationV2Builder,
-	Environment,
-	SolarQueryApi,
-} from "solarnetwork-api-core/lib/net/index.js";
+import { Aggregation, Aggregations, DatumFilter } from "solarnetwork-api-core/lib/domain";
+import { AuthorizationV2Builder, Environment, SolarQueryApi } from "solarnetwork-api-core/lib/net";
 import { DatumLoader } from "solarnetwork-datum-loader";
 import { AsciiTable3 } from "ascii-table3";
 import Getopt from "node-getopt";
