@@ -19,7 +19,7 @@
 	"dependencies": {
 		"ascii-table3": "^0.9.0",
 		"node-getopt": "^0.3.x",
-		"solarnetwork-api-core": "^2.4.0",
+		"solarnetwork-api-core": "^3.0.0",
 		"solarnetwork-datum-loader": "SolarNetwork/sn-datum-loader-js#develop"
 	}
 }
