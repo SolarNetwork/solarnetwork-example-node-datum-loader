@@ -1,6 +1,6 @@
 # SolarNetwork Node Datum Loader Example
 
-This project is a basic NodeJS example CLI app that uses the `solarnetwork-datum-loader`
+This project is a basic NodeJS example CLI app that uses the `solarnetwork-api-core`
 package to query SolarNetwork for a datum stream and print out the results.
 
 For example, query for a week's worth of daily aggregate records:
