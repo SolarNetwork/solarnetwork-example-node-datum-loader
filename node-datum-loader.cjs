@@ -1,5 +1,4 @@
-var { Domain, Net } = require("solarnetwork-api-core");
-var { DatumLoader } = require("solarnetwork-datum-loader");
+var { Domain, Net, Tool } = require("solarnetwork-api-core");
 var { AsciiTable3 } = require("ascii-table3");
 var Getopt = require("node-getopt");
 
@@ -49,7 +48,7 @@ async function query(options) {
 	}
 
 	try {
-		const data = await new DatumLoader(snApi, filter, auth).fetch();
+		const data = await new Tool.DatumLoader(snApi, filter, auth).fetch();
 
 		if (data.length) {
 			// render results in ASCII table

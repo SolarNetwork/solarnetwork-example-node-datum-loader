@@ -69,3 +69,13 @@ export SN_SECRET=mytoken-secret
 
 node ./node-datum-loader.js ...
 ```
+
+# CommonJS version
+
+The `node-datum-loader.cjs` file is a CommonJS style version of the modeles-based
+`node-datum-loader.js` script. You can run it in exactly the same way. This just serves to
+demonstrate using the CommonJS `solarnetwork-api-core` bundle.
+
+```sh
+node ./node-datum-loader.cjs ...
+```
